@@ -30,3 +30,10 @@ export function setUser (req, res, next) {
        return next();
     });
 }
+
+export function createUser (req, res, next) {
+    const userData = req.query;
+    return userService.createUser(userData).then(result => {
+        res.json(result);
+    }).catch(next);
+}

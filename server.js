@@ -13,10 +13,16 @@
 //     console.log(`Server running at http://${hostname}:${port}/`);
 // });
 import apiRouter from './api/router';
+import mongoose from "mongoose";
 
 const express = require('express')
 const app = express()
 const port = 3005
+
+
+mongoose.connect('mongodb://localhost:27020/test_database').then((result) => {
+    console.log(result);
+}).catch(err => console.error(err));
 
 
 const users = [
@@ -74,10 +80,6 @@ app.set('view engine', 'pug');
 app.get('/pug', function (req, res) {
     res.render('index', { title: 'Hey', message: 'Hello there!'});
 });
-
-app.use((req, res, next) => {
-    res.headers.set()
-})
 
 app.use('/api', apiRouter);
 
