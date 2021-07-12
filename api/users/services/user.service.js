@@ -4,8 +4,8 @@ import User from '../models/user.model';
  * @param {{search?: string, skip?: number, limit?: number}} params
  */
 export function getUsersList(params) {
-    return User.find({}).exec();
-    // Promise.resolve([{name: 'Ivan', id: 1}]);
+    const {search} = params;
+    return User.find({name: new RegExp(search, 'gim')}).exec();
 }
 
 export function getUserById(userId) {

@@ -20,5 +20,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.2",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "mockingoose": "^2.15.2"
   }
 }
